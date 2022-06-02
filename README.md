@@ -58,18 +58,20 @@ program binary and all its build artifacts (like object files and similar) get
 deleted and you can recompile the same program with a different compiler or
 compile a different program.
 
+Examples
+--------
+
 In the following section each example program gets a short description and
 compares and contrasts the differences between the compilers, as well as
 possible issues with a particular tool-chain.
 
-#Example 01 (hello world)
+### Example 01 (hello world)
 
 The simplest possible exercise most programmers try when learning a new
 language: The infamous **hello, world!** program. Simple as it is, it already
 demonstrates multiple issues and differences between all compilers.
 
-
-#Example 02 (hello world refined)
+### Example 02 (hello world refined)
 
 Example 02 tries to rectify the differences and issues raised in example 01 by
 taking some precausions before printing to the screen.
@@ -100,4 +102,4 @@ ToDo
 * More lessons (example programs)
 * Better code documentation
 
-Suggestions, bug reports and pull requests are very welcome!
+Suggestions, bug reports, and pull requests are very welcome!
