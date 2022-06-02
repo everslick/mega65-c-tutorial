@@ -2,7 +2,7 @@ Mini MEGA65 C Tutorial
 ======================
 
 This repository aims to demonstrate how you can build C programs that target
-the ![MEGA65](https://mega65.org/) computer using any of the C compilers that
+the ![MEGA65](https://mega65.org/) computer using any of the C toolchains that
 are currently available for that platform:
 ![cc65](https://cc65.github.io/),
 ![kickc](https://gitlab.com/camelot/kickc) and
@@ -11,7 +11,7 @@ are currently available for that platform:
 Purpose
 -------
 
-The **Makefile** contains targets for installing and updating the compilers
+The **Makefile** contains targets for installing and updating the toolchains
 (SDK) and an emulator (XEMU), compiling the obligatory *hello world* program,
 as well as showing how to directly run it in
 ![xemu](https://github.com/lgblgblgb/xemu).
@@ -31,7 +31,7 @@ Qick start
 
 1) Clone repository: `git clone https://github.com/everslick/mega65-c-tutorial.git)`
 2) Change directory: `cd mega65-c-tutorial`
-3) Install compilers: `make sdk`
+3) Install toolchains: `make sdk`
 4) Install XEMU: `make xemu`
 5) Compile *hello world*: `make cc65` or `make kickc` or `make vbcc`
 6) Run *hello world*: `make run`
@@ -42,7 +42,7 @@ Available make targets
 
 * **help**   print this help
 * **clean**  remove build artefacts
-* **sdk**    install/update compilers
+* **sdk**    install/update toolchains
 * **xemu**   install/update xemu
 * **kickc**  compile with KICKC
 * **cc65**   compile and link with CC65

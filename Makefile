@@ -58,7 +58,7 @@ help:
 	@echo
 	@echo "\thelp   print this help"
 	@echo "\tclean  remove build artefacts"
-	@echo "\tsdk    install/update compilers"
+	@echo "\tsdk    install/update toolchains"
 	@echo "\txemu   install/update xemu"
 	@echo "\tkickc  compile with KICKC"
 	@echo "\tcc65   compile and link with CC65"
