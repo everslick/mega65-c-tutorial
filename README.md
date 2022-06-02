@@ -27,8 +27,14 @@ This tutorial assumes running on a *POSIX* compatible operating system and
 that **java**, **git**, **curl**, **unzip**, **gcc** and **make** are available.
 
 **Note:** Windows users may try to build using ![msys2](https://www.msys2.org/),
-but will need to manually install **maven**, as well as installing **git** and
-**unzip** via *pacman*.
+but will need to manually install **maven** (get the
+[zip archive](https://maven.apache.org/download.cgi) and unpacked it directly
+into */usr/local* of you msys2 installation), as well as installing **SDL2**,
+**git** and **unzip** via *pacman* (something like
+`pacman -S mingw-w64-x86_64-SDL2 unzip git` might do the trick. Additionally it
+might be neccesary to add the location of the **java** runtime to the **PATH**
+with something like: `export PATH=/c/things/jdk-11.0.15.10-hotspot/bin:$PATH`
+in *\~/.bash_profile*. YMMV, though.
 
 Quick start
 -----------
