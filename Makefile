@@ -1,12 +1,17 @@
-PROGRAM  = hello
 VERSION  = 0.0.1
 
+ifeq ($(PRG),)
+PRG      = 01
+endif
+
 SDKDIR   = ..
-SOURCES  = $(wildcard *.c)
-DEFINES  = -DVERSION=$(VERSION)
+PROGRAM  = prg-$(PRG)
+SOURCES  = prg-$(PRG).c
 TARGET   = $(PROGRAM).prg
+sources  = $(wildcard *.c)
 
 ifeq ($(SDK),)
+SDK      = gcc
 TARGET   = $(PROGRAM)
 endif
 
@@ -24,7 +29,7 @@ ifeq ($(SDK),vbcc)
 CFLAGS   = +m65sr -v -O3
 endif
 
-DEFINES += -DTOOLCHAIN=$(SDK) -DMACHINE=$(MACHINE)
+DEFINES  = -DVERSION=$(VERSION) -DPROGRAM=$(PROGRAM) -DTOOLCHAIN=$(SDK)
 
 ########################################
 
@@ -68,15 +73,15 @@ help:
 
 cc65:
 	$(MAKE) SDK=cc65 MACHINE=m65
-	chmod +x $(PROGRAM).prg
+	$(MAKE) run
 
 kickc:
 	$(MAKE) SDK=kickc MACHINE=m65 run-kickc
-	chmod +x $(PROGRAM).prg
+	$(MAKE) run
 
 vbcc:
 	$(MAKE) SDK=vbcc MACHINE=m65 run-vbcc
-	chmod +x $(PROGRAM).prg
+	$(MAKE) run
 
 run-kickc:
 	kickc.sh -p mega65 $(CFLAGS) $(DEFINES) -o $(TARGET) $(SOURCES)
@@ -84,8 +89,10 @@ run-kickc:
 run-vbcc:
 	vc $(CFLAGS) $(DEFINES) -o $(TARGET) $(SOURCES)
 
-run: xemu
+run:
+	chmod +x $(PROGRAM).prg
 	xmega65.native -besure -prg $(PROGRAM).prg
+	$(MAKE) clean
 
 xemu:
 	@echo -e ${YEL}Pulling in XEMU ...${RST}
