@@ -62,13 +62,11 @@ help:
 	@echo "supported make targets are:"
 	@echo
 	@echo "\thelp   print this help"
-	@echo "\tclean  remove build artifacts"
-	@echo "\tsdk    install/update toolchains"
-	@echo "\txemu   install/update xemu"
+	@echo "\tsetup  install/update tool-chains and Xemu"
 	@echo "\tkickc  compile with KICKC"
 	@echo "\tcc65   compile and link with CC65"
 	@echo "\tvbcc   compile and link with VBCC"
-	@echo "\trun    run in Xemu"
+	@echo "\tclean  remove build artifacts"
 	@echo
 
 cc65:
@@ -94,8 +92,11 @@ run:
 	xmega65.native -besure -prg $(PROGRAM).prg
 	$(MAKE) clean
 
-xemu:
-	@echo -e ${YEL}Pulling in XEMU ...${RST}
+clean:
+	$(RM) *.o *.d *.map *.asm *.dbg *.vs *.klog *.prg $(PROGRAM)
+
+setup:
+	@echo -e ${YEL}Pulling in SDK ...${RST}
 	@if [ -d $(SDKDIR)/xemu ] ; then                                       \
 	  echo -e ${CYN}Updating ${RED}XEMU${CYN} ... ${RST} ;                 \
 	  cd $(SDKDIR)/xemu ;                                                  \
@@ -108,10 +109,6 @@ xemu:
 	  cd xemu ;                                                            \
 	  make ;                                                               \
 	fi ;
-	@echo -e ${GRN}DONE pulling in XEMU${RST}
-
-sdk:
-	@echo -e ${YEL}Pulling in SDK ...${RST}
 	@if [ -d $(SDKDIR)/cc65 ] ; then                                       \
 	  echo -e ${CYN}Updating ${RED}CC65${CYN} ... ${RST} ;                 \
 	  cd $(SDKDIR)/cc65 ;                                                  \
@@ -162,6 +159,3 @@ endif
 
 $(PROGRAM): $(SOURCES:.c=.o)
 	$(CC) $(LDFLAGS) -o $(TARGET) $^
-
-clean:
-	$(RM) *.o *.d *.map *.asm *.dbg *.vs *.klog *.prg $(PROGRAM)

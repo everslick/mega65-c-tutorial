@@ -1,5 +1,5 @@
-Mini MEGA65 C Tutorial
-======================
+MEGA65 C Tutorial
+=================
 
 This repository aims to demonstrate how to compile C programs that target the
 ![MEGA65](https://mega65.org/) computer using any of the C tool-chains that are
@@ -12,9 +12,8 @@ Overview
 --------
 
 The **Makefile** contains targets for installing and updating the tool-chains
-(SDK) and the MEGA65 emulator (XEMU), compiling the obligatory *hello world*
-program, as well as showing how to directly run it in
-![xemu](https://github.com/lgblgblgb/xemu).
+(SDK) and the MEGA65 emulator (XEMU), compiling the example programs (one at a
+time), as well as running them in ![Xemu](https://github.com/lgblgblgb/xemu).
 
 This should give a starting point for experimentation and exploration, help
 in gaining an overview of available options and provide a low friction entry
@@ -41,31 +40,64 @@ Quick start
 
 1) Clone repository: `git clone https://github.com/everslick/mega65-c-tutorial.git`
 2) Change directory: `cd mega65-c-tutorial`
-3) Install toolchains: `make sdk`
-4) Install XEMU: `make xemu`
-5) Compile *hello world*: `make cc65` or `make kickc` or `make vbcc`
-6) Run *hello world*: `make run`
-7) Clean up: `make clean`
-8) `GOTO 5`
+3) Install tool-chains and Xemu: `make setup`
+4) Compile and run *hello world*: `make cc65` or `make kickc` or `make vbcc`
+5) `GOTO 4`
+
+Usage
+-----
+
+So how does this tutorial work anyway? Each *lesson* tries to focus on one
+specific issue or feature and is accompanied by an example program that must be
+compiled with `make PRG=XX YYY` where `XX` is a two digit number (e.g. `05`)
+and `YYY` is the compiler you want the program to be built with (e.g. `cc65`).
+
+If the build was successful, Xemu will be started automatically and the program
+will be injected and launched in Xemu. When you close the Xemu window the
+program binary and all its build artifacts (like object files and similar) get
+deleted and you can recompile the same program with a different compiler or
+compile a different program.
+
+In the following section each example program gets a short description and
+compares and contrasts the differences between the compilers, as well as
+possible issues with a particular tool-chain.
+
+#Example 01 (hello world)
+
+The simplest possible exercise most programmers try when learning a new
+language: The infamous **hello, world!** program. Simple as it is, it already
+demonstrates multiple issues and differences between all compilers.
+
+
+#Example 02 (hello world refined)
+
+Example 02 tries to rectify the differences and issues raised in example 01 by
+taking some precausions before printing to the screen.
 
 Available make targets
 ----------------------
 
 * **help**   print this help
-* **clean**  remove build artifacts
-* **sdk**    install/update toolchains
-* **xemu**   install/update xemu
+* **clean**  remove stale build artifacts
+* **setup**  install/update tool-chains and Xemu
 * **kickc**  compile with KICKC
 * **cc65**   compile and link with CC65
 * **vbcc**   compile and link with VBCC
-* **run**    run in Xemu
 
 Resources
 ---------
 
-Discussion & help: ![Discord](https://discord.com/channels/719326990221574164/782757495180361778)
+Discussion & Help: ![Discord](https://discord.com/channels/719326990221574164/782757495180361778)
 
 Contributors
 ------------
 
 Croccydile (testing on MSYS2, finding typos)
+
+ToDo
+----
+
+* More lessons (example programs)
+* Better code documentation
+
+Suggestions, bug reports and pull requests are very welcome!
