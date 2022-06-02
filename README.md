@@ -36,6 +36,7 @@ Quick start
 5) Compile *hello world*: `make cc65` or `make kickc` or `make vbcc`
 6) Run *hello world*: `make run`
 7) Clean up: `make clean`
+8) `GOTO 5`
 
 Available make targets
 ----------------------
