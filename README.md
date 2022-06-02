@@ -1,9 +1,9 @@
 Mini MEGA65 C Tutorial
 ======================
 
-This repository aims to demonstrate how you can build C programs that target
-the ![MEGA65](https://mega65.org/) computer using any of the C toolchains that
-are currently available for that platform:
+This repository aims to demonstrate how to compile C programs that target the
+![MEGA65](https://mega65.org/) computer using any of the C tool-chains that are
+currently available for that platform:
 ![cc65](https://cc65.github.io/),
 ![kickc](https://gitlab.com/camelot/kickc) and
 ![vbcc](http://www.compilers.de/vbcc.html).
@@ -11,25 +11,29 @@ are currently available for that platform:
 Overview
 --------
 
-The **Makefile** contains targets for installing and updating the toolchains
-(SDK) and an emulator (XEMU), compiling the obligatory *hello world* program,
-as well as showing how to directly run it in
+The **Makefile** contains targets for installing and updating the tool-chains
+(SDK) and the MEGA65 emulator (XEMU), compiling the obligatory *hello world*
+program, as well as showing how to directly run it in
 ![xemu](https://github.com/lgblgblgb/xemu).
 
-It should give you a starting point for experimentation and exploration, help
-you in gaining an overview of available options and provide a low friction
-entry into cross compiling C programs for the MEGA65.
+This should give a starting point for experimentation and exploration, help
+in gaining an overview of available options and provide a low friction entry
+into cross-compiling C programs for the MEGA65.
 
 Prerequisites
 -------------
 
-This tutorial assumes running on a **Linux** box and that you have **java**,
-**git**, **curl**, **unzip**, **gcc** and **make** installed.
+This tutorial assumes running on a *POSIX* compatible operating system and
+that **java**, **git**, **curl**, **unzip**, **gcc** and **make** are available.
+
+**Note:** Windows users may try to build using ![msys2](https://www.msys2.org/),
+but will need to manually install **maven**, as well as installing **git** and
+**unzip** via *pacman*.
 
 Quick start
 -----------
 
-1) Clone repository: `git clone https://github.com/everslick/mega65-c-tutorial.git)`
+1) Clone repository: `git clone https://github.com/everslick/mega65-c-tutorial.git`
 2) Change directory: `cd mega65-c-tutorial`
 3) Install toolchains: `make sdk`
 4) Install XEMU: `make xemu`
@@ -53,5 +57,9 @@ Available make targets
 Resources
 ---------
 
-![Discord](https://discord.com/channels/719326990221574164/782757495180361778)
+Discussion & help: ![Discord](https://discord.com/channels/719326990221574164/782757495180361778)
 
+Contributors
+------------
+
+Croccydile (testing on MSYS2, finding typos)
