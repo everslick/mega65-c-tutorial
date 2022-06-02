@@ -8,8 +8,8 @@ are currently available for that platform:
 ![kickc](https://gitlab.com/camelot/kickc) and
 ![vbcc](http://www.compilers.de/vbcc.html).
 
-Purpose
--------
+Overview
+--------
 
 The **Makefile** contains targets for installing and updating the toolchains
 (SDK) and an emulator (XEMU), compiling the obligatory *hello world* program,
@@ -20,14 +20,14 @@ It should give you a starting point for experimentation and exploration, help
 you in gaining an overview of available options and provide a low friction
 entry into cross compiling C programs for the MEGA65.
 
-Prerquisits
------------
+Prerequisites
+-------------
 
 This tutorial assumes running on a **Linux** box and that you have **java**,
 **git**, **curl**, **unzip**, **gcc** and **make** installed.
 
-Qick start
-----------
+Quick start
+-----------
 
 1) Clone repository: `git clone https://github.com/everslick/mega65-c-tutorial.git)`
 2) Change directory: `cd mega65-c-tutorial`
@@ -41,7 +41,7 @@ Available make targets
 ----------------------
 
 * **help**   print this help
-* **clean**  remove build artefacts
+* **clean**  remove build artifacts
 * **sdk**    install/update toolchains
 * **xemu**   install/update xemu
 * **kickc**  compile with KICKC

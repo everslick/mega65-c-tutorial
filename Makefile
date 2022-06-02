@@ -57,7 +57,7 @@ help:
 	@echo "supported make targets are:"
 	@echo
 	@echo "\thelp   print this help"
-	@echo "\tclean  remove build artefacts"
+	@echo "\tclean  remove build artifacts"
 	@echo "\tsdk    install/update toolchains"
 	@echo "\txemu   install/update xemu"
 	@echo "\tkickc  compile with KICKC"
