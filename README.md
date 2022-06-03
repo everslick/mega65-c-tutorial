@@ -71,10 +71,55 @@ The simplest possible exercise most programmers try when learning a new
 language: The infamous **hello, world!** program. Simple as it is, it already
 demonstrates multiple issues and differences between all compilers.
 
+Source:
+```
+#include <stdio.h>
+
+int main(int argc, char **argv) {
+  printf("hello, world!\n");
+
+  return (0);
+}
+```
+
+Build:
+`make PRG=01 vbcc`
+
 ### Example 02 (hello world refined)
 
 Example 02 tries to rectify the differences and issues raised in example 01 by
 taking some precausions before printing to the screen.
+
+Source:
+```
+#include <stdio.h>
+
+#define _mkstr_(_s_)  #_s_
+#define mkstr(_s_)    _mkstr_(_s_)
+
+#define POKE(X,Y) (*(unsigned char *)(X))=Y
+#define PEEK(X)   (*(unsigned char *)(X))
+
+static void togglecase(void) {
+#ifdef __KICKC__
+  POKE(0xD018, PEEK(0xD018) ^ 0x02);
+#endif
+}
+
+int main(int argc, char **argv) {
+  togglecase();
+
+  printf("hello, world!\n\n");
+  printf("PROGRAM=%s, VERSION=%s, TOOLCHAIN=%s\n",
+    mkstr(PROGRAM), mkstr(VERSION), mkstr(TOOLCHAIN)
+  );
+
+  return (0);
+}
+```
+
+Build:
+`make PRG=02 kickc`
 
 Available make targets
 ----------------------
